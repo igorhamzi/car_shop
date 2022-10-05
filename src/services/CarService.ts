@@ -1,7 +1,6 @@
 import { IService } from '../interfaces/IService';
 import { ICar, carZodSchema } from '../interfaces/ICar';
 import { IModel } from '../interfaces/IModel';
-// import { ErrorTypes } from '../errors/catalog';
 
 class CarService implements IService<ICar> {
   private _car: IModel<ICar>;
@@ -21,6 +20,11 @@ class CarService implements IService<ICar> {
   public async read(): Promise<ICar[]> {
     const cars = await this._car.read();
     return cars;
+  }
+
+  public async readOne(_id: string): Promise<ICar | null> {
+    const car = await this._car.readOne(_id);
+    return car;
   }
 }
 
