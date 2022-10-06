@@ -29,4 +29,11 @@ describe('Car Model', () => {
       expect(carRead).to.be.deep.equal(carMockWithId);
     })
   });
+
+  describe('read a car by Id', () => {
+    it('successfully read', async () => {
+      const carReadById = await carModel.readOne('4edd40c86762e0fb12000003');
+      expect(carReadById).to.be.deep.equal(carMockWithId);
+    })
+  });
 });
