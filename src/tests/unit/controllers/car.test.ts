@@ -35,4 +35,14 @@ describe('Car controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
     })
   });
+
+  describe('Read Car', () => {
+    it('sucess', async () => {
+      req.body = carMock;
+      await carController.getCars(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
+    })
+  });
 });
