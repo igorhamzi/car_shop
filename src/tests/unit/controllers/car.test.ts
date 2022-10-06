@@ -45,4 +45,14 @@ describe('Car controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
     })
   });
+
+  describe('Read Car by Id', () => {
+    it('sucess', async () => {
+      req.body = carMock;
+      await carController.getCarById(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
+    })
+  });
 });
