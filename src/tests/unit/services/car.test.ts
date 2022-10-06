@@ -32,4 +32,12 @@ describe('Car Service', () => {
       }
     })
   });
+
+  describe('Read car', () => {
+    it('sucess', async () => {
+      const cars = await carService.read();
+
+    expect(cars).to.be.deep.equal([carMock]);
+    });
+  });
 });
