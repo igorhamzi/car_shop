@@ -3,7 +3,8 @@ import chai from 'chai';
 const { expect } = chai;
 import CarModel from '../../../models/Car';
 import { Model } from 'mongoose';
-import { carMock, carMockWithId } from '../../mocks/carMock';
+import { carMock,carMockWithId,carMockForUpdate,carMockForUpdateWithId } from '../../mocks/carMock';
+import { ErrorTypes } from '../../../errors/catalog';
 
 describe('Car Model', () => {
   const carModel = new CarModel();
@@ -36,4 +37,19 @@ describe('Car Model', () => {
       expect(carReadById).to.be.deep.equal(carMockWithId);
     })
   });
+
+  describe('changing a frame', () => {
+		it('update car', async () => {
+			const carUpdated = await carModel.update('62cf1fc6498565d94eba52cd', carMockForUpdate);
+			expect(carUpdated).to.be.deep.equal(carMockForUpdateWithId);
+		});
+
+		it('id not found to update', async () => {
+			try {
+				await carModel.update('123ERRADO', carMockForUpdate);
+			} catch (error:any) {
+				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
+			}
+		});
+	});
 });
