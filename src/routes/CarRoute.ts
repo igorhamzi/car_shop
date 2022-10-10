@@ -13,5 +13,6 @@ route.post('/', (req: Request, res: Response) => carController.createCar(req, re
 route.get('/', (req: Request, res: Response) => carController.getCars(req, res));
 route.get('/:id', (req: Request, res: Response) => carController.getCarById(req, res));
 route.put('/:id', (req: Request, res: Response) => carController.updateCar(req, res));
+route.delete('/:id', (req: Request, res: Response) => carController.deleteCar(req, res));
 
 export default route;
