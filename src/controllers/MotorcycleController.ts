@@ -25,4 +25,9 @@ export default class MotorcycleController {
     const motorcycleCreated = await this._service.create(motorcycle);
     return res.status(201).json(motorcycleCreated);
   }
+
+  public async getMotorcycles(_req: Request & { body: IMotorcycle }, res: Response<IMotorcycle[]>) {
+    const motorcycles = await this._service.read();
+    return res.status(200).json(motorcycles);
+  }
 }
