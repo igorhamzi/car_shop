@@ -33,4 +33,12 @@ describe('Car Service', () => {
       }
     })
   });
+
+  describe('Read Motorcycles', () => {
+    it('sucess', async () => {
+      const motorcycles = await motorcycleService.read();
+
+    expect(motorcycles).to.be.deep.equal([motorcycleMock]);
+    });
+  });
 });

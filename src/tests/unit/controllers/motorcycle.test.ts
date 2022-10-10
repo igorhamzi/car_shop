@@ -35,4 +35,14 @@ describe('Motorcycle controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(motorcycleMock)).to.be.true;
     })
   });
+
+  describe('Read Motorcycles', () => {
+    it('sucess', async () => {
+      req.body = motorcycleMock;
+      await motorcycleController.getMotorcycles(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(motorcycleMock)).to.be.true;
+    })
+  });
 });
