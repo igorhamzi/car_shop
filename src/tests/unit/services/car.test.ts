@@ -38,7 +38,7 @@ describe('Car Service', () => {
     })
   });
 
-  describe('Read cars', () => {
+  describe('Read Cars', () => {
     it('sucess', async () => {
       const cars = await carService.read();
 
@@ -46,7 +46,7 @@ describe('Car Service', () => {
     });
   });
 
-  describe('readOne car', () => {
+  describe('readOne Car', () => {
     it('sucess', async () => {
       const car = await carService.readOne(carMockWithId._id);
 
@@ -61,4 +61,11 @@ describe('Car Service', () => {
       }
     })
   });
+
+  describe('Update Car', () => {
+		it('Success', async () => {
+			const carUpdated = await carService.update('62cf1fc6498565d94eba52cd', carMock);
+			expect(carUpdated).to.be.deep.equal(carMockWithId);
+		});
+	});
 });
