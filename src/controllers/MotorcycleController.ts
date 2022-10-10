@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { IService } from '../interfaces/IService';
 import { IMotorcycle } from '../interfaces/IMotorcycle';
+import { ErrorTypes } from '../errors/catalog';
 
 export default class MotorcycleController {
   constructor(private _service: IService<IMotorcycle>) { }
@@ -29,5 +30,12 @@ export default class MotorcycleController {
   public async getMotorcycles(_req: Request & { body: IMotorcycle }, res: Response<IMotorcycle[]>) {
     const motorcycles = await this._service.read();
     return res.status(200).json(motorcycles);
+  }
+
+  public async getMotorcycleById(req: Request, res: Response<IMotorcycle | null>) {
+    const { id } = req.params;
+    if (id.length !== 24) throw new Error(ErrorTypes.InvalidMongoId);
+    const car = await this._service.readOne(id);
+    return res.status(200).json(car);
   }
 }
