@@ -5,7 +5,7 @@ import CarModel from '../../../models/Car'
 import CarService from '../../../services/CarService'
 import CarController from '../../../controllers/CarController';
 import { Request, Response } from 'express';
-import { carMock } from '../../mocks/carMock';
+import { carMock, carMockForUpdateWithId } from '../../mocks/carMock';
 
 describe('Car controller', () => {
   const carModel = new CarModel();
@@ -50,6 +50,17 @@ describe('Car controller', () => {
     it('sucess', async () => {
       req.body = carMock;
       await carController.getCarById(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
+    })
+  });
+
+  describe('Update car', () => {
+    it('sucess', async () => {
+      req.body = carMock;
+      req.params = { id: carMockForUpdateWithId._id}
+      await carController.updateCar(req, res);
 
       expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
       expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
