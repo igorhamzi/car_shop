@@ -25,5 +25,9 @@ route.put(
   '/:id',
   (req: Request, res: Response) => motorcycleController.updateMotorcycle(req, res),
 );
+route.delete(
+  '/:id',
+  (req: Request, res: Response) => motorcycleController.deleteMotorcycle(req, res),
+);
 
 export default route;

@@ -37,6 +37,12 @@ class MotorcycleService implements IService<IMotorcycle> {
     await this.readOne(_id);
     return this._motorcycle.update(_id, obj);
   }
+
+  public async delete(_id: string): Promise<IMotorcycle | null> {
+    await this.readOne(_id);
+    const motorcycleDeleted = await this._motorcycle.delete(_id);
+    return motorcycleDeleted;
+  }
 }
 
 export default MotorcycleService;

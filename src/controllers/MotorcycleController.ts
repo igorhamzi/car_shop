@@ -51,4 +51,14 @@ export default class MotorcycleController {
     const motorcycleUpdated = await this._service.update(id, req.body);
     return res.status(200).json(motorcycleUpdated);
   }
+
+  public async deleteMotorcycle(
+    req: Request & { body: IMotorcycle },
+    res: Response<IMotorcycle | null>,
+  ) {
+    const { id } = req.params;
+    if (id.length !== 24) throw new Error(ErrorTypes.InvalidMongoId);
+    const motorcycleDeleted = await this._service.delete(id);
+    return res.status(204).json(motorcycleDeleted);
+  }
 }
