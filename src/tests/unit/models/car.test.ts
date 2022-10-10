@@ -30,7 +30,7 @@ describe('Car Model', () => {
   describe('read a car', () => {
     it('successfully read', async () => {
       const carRead = await carModel.read();
-      expect(carRead).to.be.deep.equal(carMockWithId);
+      expect(carRead).to.be.deep.equal([carMockWithId]);
     })
   });
 
@@ -41,7 +41,7 @@ describe('Car Model', () => {
     })
   });
 
-  describe('changing a frame', () => {
+  describe('update a car', () => {
 		it('update car', async () => {
 			const carUpdated = await carModel.update('62cf1fc6498565d94eba52cd', carMockForUpdate);
 			expect(carUpdated).to.be.deep.equal(carMockForUpdateWithId);

@@ -52,6 +52,7 @@ describe('Car controller', () => {
   describe('Read Car by Id', () => {
     it('sucess', async () => {
       req.body = carMock;
+      req.params = { id: carMockForUpdateWithId._id}
       await carController.getCarById(req, res);
 
       expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
