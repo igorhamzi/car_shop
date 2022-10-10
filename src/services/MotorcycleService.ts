@@ -28,6 +28,15 @@ class MotorcycleService implements IService<IMotorcycle> {
     if (!motorcycle) throw new Error(ErrorTypes.ObjectNotFound);
     return motorcycle;
   }
+
+  public async update(_id: string, obj: IMotorcycle): Promise<IMotorcycle | null> {
+    const parsed = motorcycleZodSchema.safeParse(obj);
+    if (!parsed.success) {
+      throw parsed.error;
+    }
+    await this.readOne(_id);
+    return this._motorcycle.update(_id, obj);
+  }
 }
 
 export default MotorcycleService;

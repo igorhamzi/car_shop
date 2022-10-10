@@ -21,5 +21,9 @@ route.get(
   '/:id',
   (req: Request, res: Response) => motorcycleController.getMotorcycleById(req, res),
 );
+route.put(
+  '/:id',
+  (req: Request, res: Response) => motorcycleController.updateMotorcycle(req, res),
+);
 
 export default route;
