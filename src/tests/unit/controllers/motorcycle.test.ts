@@ -45,4 +45,15 @@ describe('Motorcycle controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(motorcycleMock)).to.be.true;
     })
   });
+
+  describe('Read a Motorcycle', () => {
+    it('sucess', async () => {
+      req.body = motorcycleMock;
+      req.params = { id: motorcycleMockForUpdateWithId._id}
+      await motorcycleController.getMotorcycleById(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(motorcycleMock)).to.be.true;
+    })
+  });
 });

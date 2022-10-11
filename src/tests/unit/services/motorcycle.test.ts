@@ -41,4 +41,20 @@ describe('Car Service', () => {
     expect(motorcycles).to.be.deep.equal([motorcycleMock]);
     });
   });
+
+  describe('readOne Motorcycles', () => {
+    it('sucess', async () => {
+      const motorcycles = await motorcycleService.readOne(motorcycleMockWithId._id);
+
+    expect(motorcycles).to.be.deep.equal(motorcycleMockWithId);
+    });
+
+    it('failure', async () => {
+      try {
+        await motorcycleService.readOne(motorcycleMockWithId._id);
+      } catch (error:any) {
+        expect(error.message).to.be.deep.equal(ErrorTypes.ObjectNotFound);
+      }
+    })
+  });
 });
