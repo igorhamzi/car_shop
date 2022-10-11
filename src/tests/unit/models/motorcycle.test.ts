@@ -42,4 +42,19 @@ describe('Car Model', () => {
       expect(motorcycleReadById).to.be.deep.equal(motorcycleMockWithId);
     })
   });
+
+  describe('update a motorcycle', () => {
+		it('successfully update', async () => {
+			const motorcycleUpdated = await motorcycleModel.update('4edd40c86762e0fb12000003', motorcycleMockForUpdate);
+			expect(motorcycleUpdated).to.be.deep.equal(motorcycleMockForUpdateWithId);
+		});
+
+		it('id not found to update', async () => {
+			try {
+				await motorcycleModel.update('123ERRADO', motorcycleMockForUpdate);
+			} catch (error:any) {
+				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
+			}
+		});
+	});
 });

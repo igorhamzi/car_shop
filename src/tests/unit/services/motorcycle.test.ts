@@ -57,4 +57,11 @@ describe('Car Service', () => {
       }
     })
   });
+
+  describe('Update Car', () => {
+		it('Success', async () => {
+			const motorcycleUpdated = await motorcycleService.update('62cf1fc6498565d94eba52cd', motorcycleMock);
+			expect(motorcycleUpdated).to.be.deep.equal(motorcycleMockWithId);
+		});
+	});
 });
