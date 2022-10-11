@@ -55,4 +55,11 @@ describe('Car Model', () => {
 			}
 		});
 	});
+
+  describe('delete a car', () => {
+    it('successfully read', async () => {
+      const carDeleted = await carModel.delete('4edd40c86762e0fb12000003');
+      expect(carDeleted).to.be.deep.equal(carMockForUpdateWithId);
+    })
+  });
 });

@@ -64,4 +64,11 @@ describe('Car Service', () => {
 			expect(motorcycleUpdated).to.be.deep.equal(motorcycleMockWithId);
 		});
 	});
+
+  describe('Delete Car', () => {
+		it('Success', async () => {
+			const motorcycleDeleted = await motorcycleService.delete('4edd40c86762e0fb12000003');
+			expect(motorcycleDeleted).to.be.deep.equal(motorcycleMockWithId);
+		});
+	});
 });

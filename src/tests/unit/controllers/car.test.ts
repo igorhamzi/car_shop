@@ -70,4 +70,14 @@ describe('Car controller', () => {
       expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
     })
   });
+
+  describe('Delete car', () => {
+    it('sucess', async () => {
+      req.params = { id: carMockForUpdateWithId._id}
+      await carController.deleteCar(req, res);
+
+      expect((res.status as sinon.SinonStub).calledWith(204)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carMock)).to.be.true;
+    })
+  });
 });
