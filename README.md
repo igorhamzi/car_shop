@@ -1,4 +1,4 @@
-## :information_source: Fut Champions Project
+## :information_source: Car Shop Project
 
 Projeto desenvolvido para consolidar os conhecimentos de construção de API utilizando POO(Programação Orientada a Objeto) e banco de dados **MongoDB**
 
