@@ -1,13 +1,24 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+## :information_source: Fut Champions Project
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Projeto desenvolvido para consolidar os conhecimentos de construção de API utilizando POO(Programação Orientada a Objeto) e banco de dados **MongoDB**
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+---
+
+## :rocket: Stack utilizada
+
+* **language:** TypeScript
+
+* **Back-end:** Node.js, Express, MongoDB, Mongoose
+
+* **test:** Mocha, Chai, Sinon
+
+* **tools:** Workbench, Insomnia
+
+## :link: O que foi desenvolvido
+
+Neste projeto foi aplicado os princípios de Programação Orientada a Objetos (POO) para a construção de uma API com CRUD para gerenciar uma concessionária de veículos. Isso foi realizado utilizando o banco de dados MongoDB.
+
+
+---
+
+### Projeto realizado no módulo de Back-end do Curso de Desenvolvimento WEB da TRYBE.
